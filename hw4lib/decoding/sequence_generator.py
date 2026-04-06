@@ -286,7 +286,7 @@ class SequenceGenerator:
             next_token_scores = next_token_scores.masked_fill(finished_mask, float('-inf'))
             # For finished beams, allow EOS with score 0 to keep the sequence without penalty
             eos_token = self.tokenizer.eos_id
-            next_token_scores[finished_mask[:, :, eos_token]] = 0.0
+            next_token_scores[:, :, eos_token] = next_token_scores[:, :, eos_token].masked_fill(finished, 0.0)
 
             # Cumulative scores: (B, beam, vocab)
             cum_scores = scores.unsqueeze(-1) + next_token_scores          # (B, beam, vocab)
