@@ -135,6 +135,8 @@ class H4Tokenizer:
         Returns:
             Decoded text string
         """
+        if hasattr(token_ids, 'tolist'):
+            token_ids = token_ids.tolist()
         return self.tokenizer.decode(token_ids, skip_special_tokens=skip_special_tokens)
 
     def _validate_tokenizer(self) -> None:
