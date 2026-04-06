@@ -12,7 +12,7 @@ tokenization:
 
 ###### Dataset -----------------------------------------------------------------
 data:
-  root                 : "/kaggle/input/s26-11785-hw4-data/hw4p2_data"  # TODO: Set the root path of your data
+  root                 : "/kaggle/input/datasets/cmu11785/s26-11785-hw4-data/hw4p2_data"
   train_partition      : "train-clean-100"
   val_partition        : "dev-clean"
   test_partition       : "test-clean"
